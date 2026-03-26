@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { useCreateTask, useUpdateTask } from "../hooks/useTasks";
-import { useAuth } from "../features/auth/AuthContext";
 
 const STATUSES = [
   { value: "todo", label: "Todo" },
@@ -9,7 +8,6 @@ const STATUSES = [
 ];
 
 export default function TaskModal({ task, onClose }) {
-  const { user } = useAuth();
   const { mutate: createTask, isPending: creating } = useCreateTask(onClose);
   const { mutate: updateTask, isPending: updating } = useUpdateTask(onClose);
 
@@ -29,11 +27,7 @@ export default function TaskModal({ task, onClose }) {
     if (task) {
       updateTask({ ...task, ...data });
     } else {
-      createTask({
-        ...data,
-        userId: user.id,
-        createdAt: new Date().toISOString(),
-      });
+      createTask({ ...data, createdAt: new Date().toISOString() });
     }
   }
 

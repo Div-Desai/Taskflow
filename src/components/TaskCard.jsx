@@ -4,9 +4,9 @@ export default function TaskCard({ task, onEdit }) {
   const { mutate: deleteTask } = useDeleteTask();
 
   return (
-    <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 group">
+    <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-100 dark:border-gray-700 group">
       <div className="flex items-start justify-between gap-2">
-        <p className="text-sm font-medium text-gray-800 leading-snug">
+        <p className="text-sm font-medium text-gray-800 dark:text-gray-100 leading-snug">
           {task.title}
         </p>
         <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
@@ -31,7 +31,7 @@ export default function TaskCard({ task, onEdit }) {
         </p>
       )}
 
-      <p className="text-xs text-gray-300 mt-3">
+      <p className="text-xs text-gray-300 dark:text-gray-500 mt-3">
         {new Date(task.createdAt).toLocaleDateString()}
       </p>
     </div>

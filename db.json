@@ -26,7 +26,7 @@
       "id": "2",
       "title": "Build Kanban board",
       "description": "Create three columns with drag and drop support",
-      "status": "inprogress",
+      "status": "todo",
       "userId": "u1",
       "createdAt": "2025-03-21T10:00:00.000Z"
     },
@@ -34,7 +34,7 @@
       "id": "3",
       "title": "Add authentication",
       "description": "Login page with mock JWT and protected routes",
-      "status": "todo",
+      "status": "inprogress",
       "userId": "u1",
       "createdAt": "2025-03-22T10:00:00.000Z"
     },
@@ -49,7 +49,7 @@
     {
       "title": "test 2 task",
       "description": "sdasdasdasd",
-      "status": "todo",
+      "status": "inprogress",
       "userId": "A3eGwX5XanQ",
       "createdAt": "2026-03-26T13:41:42.433Z",
       "id": "xmXhjd2PtrA"

@@ -49,16 +49,16 @@ export default function KanbanBoard() {
     return (
       <div className="p-6">
         <div className="flex items-center justify-between mb-6">
-          <div className="h-6 bg-gray-200 rounded w-32 animate-pulse"></div>
-          <div className="h-9 bg-gray-200 rounded w-24 animate-pulse"></div>
+          <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-32 animate-pulse"></div>
+          <div className="h-9 bg-gray-200 dark:bg-gray-700 rounded w-24 animate-pulse"></div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[1, 2, 3].map((col) => (
             <div
               key={col}
-              className="bg-white rounded-xl p-4 shadow-md border border-gray-100"
+              className="bg-white dark:bg-gray-900 rounded-xl p-4 shadow-md border border-gray-100 dark:border-gray-800"
             >
-              <div className="h-4 bg-gray-200 rounded w-24 mb-4 animate-pulse"></div>
+              <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-24 mb-4 animate-pulse"></div>
               <div className="space-y-3">
                 <SkeletonCard />
                 <SkeletonCard />
@@ -77,7 +77,9 @@ export default function KanbanBoard() {
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="p-6">
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-xl font-bold text-gray-800">My Board</h1>
+          <h1 className="text-xl font-bold text-gray-800 dark:text-gray-100">
+            My Board
+          </h1>
           <button
             onClick={handleAddNew}
             className="bg-teal-500 hover:bg-teal-600 text-white text-sm px-4 py-2 rounded-lg transition-colors"
@@ -86,19 +88,18 @@ export default function KanbanBoard() {
           </button>
         </div>
 
-        {/* Search and Filter */}
         <div className="flex gap-3 mb-6">
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search tasks..."
-            className="flex-1 max-w-xs border border-gray-200 rounded-lg px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent"
+            className="flex-1 max-w-xs border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 rounded-lg px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent"
           />
           <select
             value={status}
             onChange={(e) => setStatus(e.target.value)}
-            className="border border-gray-200 rounded-lg px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent"
+            className="border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100 rounded-lg px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent"
           >
             <option value="all">All Status</option>
             <option value="todo">Todo</option>
@@ -114,15 +115,15 @@ export default function KanbanBoard() {
               <Droppable droppableId={col.id} key={col.id}>
                 {(provided) => (
                   <div
-                    className="bg-white rounded-xl p-4 shadow-md border border-gray-100 flex flex-col h-[calc(100vh-220px)]"
+                    className="bg-white dark:bg-gray-900 rounded-xl p-4 shadow-md border border-gray-100 dark:border-gray-800 flex flex-col h-[calc(100vh-220px)]"
                     ref={provided.innerRef}
                     {...provided.droppableProps}
                   >
                     <div className="flex items-center justify-between mb-4">
-                      <h2 className="text-sm font-semibold text-gray-600 uppercase tracking-wide">
+                      <h2 className="text-sm font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
                         {col.label}
                       </h2>
-                      <span className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">
+                      <span className="text-xs bg-gray-100 dark:bg-gray-800 text-gray-500 px-2 py-0.5 rounded-full">
                         {colTasks.length}
                       </span>
                     </div>
