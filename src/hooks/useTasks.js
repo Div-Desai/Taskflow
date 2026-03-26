@@ -1,10 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import {
-  getTasks,
-  createTask,
-  updateTask,
-  deleteTask,
-} from "../utils/taskUtils";
+import { getTasks, createTask, updateTask, deleteTask } from "../util/taskUtil";
 
 export function useTasks() {
   return useQuery({
