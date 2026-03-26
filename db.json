@@ -5,6 +5,12 @@
       "name": "Div Desai",
       "email": "div@test.com",
       "password": "password123"
+    },
+    {
+      "name": "Divyansh Desai",
+      "email": "divyanshdesai@gmail.com",
+      "password": "div!23",
+      "id": "r07_oIJk240"
     }
   ],
   "tasks": [
@@ -29,5 +35,6 @@
       "status": "todo",
       "createdAt": "2025-03-22T10:00:00.000Z"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
