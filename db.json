@@ -1,16 +1,16 @@
 {
   "users": [
     {
-      "id": "1",
+      "id": "u1",
       "name": "Div Desai",
       "email": "div@test.com",
       "password": "password123"
     },
     {
-      "name": "Divyansh Desai",
-      "email": "divyanshdesai@gmail.com",
-      "password": "div!23",
-      "id": "r07_oIJk240"
+      "name": "test2@gmail.com",
+      "email": "test2@gmail.com",
+      "password": "test2@gmail.com",
+      "id": "A3eGwX5XanQ"
     }
   ],
   "tasks": [
@@ -18,7 +18,8 @@
       "id": "1",
       "title": "Setup project structure",
       "description": "Initialize Vite + React with all dependencies",
-      "status": "todo",
+      "status": "done",
+      "userId": "u1",
       "createdAt": "2025-03-20T10:00:00.000Z"
     },
     {
@@ -26,21 +27,32 @@
       "title": "Build Kanban board",
       "description": "Create three columns with drag and drop support",
       "status": "inprogress",
+      "userId": "u1",
       "createdAt": "2025-03-21T10:00:00.000Z"
     },
     {
-      "title": "Dummy Task",
-      "description": "test 1",
-      "status": "done",
-      "createdAt": "2026-03-26T10:48:32.271Z",
-      "id": "sDIGMC4CzM8"
+      "id": "3",
+      "title": "Add authentication",
+      "description": "Login page with mock JWT and protected routes",
+      "status": "todo",
+      "userId": "u1",
+      "createdAt": "2025-03-22T10:00:00.000Z"
     },
     {
-      "title": "test 2",
-      "description": "test 2 added",
-      "status": "done",
-      "createdAt": "2026-03-26T10:56:40.902Z",
-      "id": "B72tfKv5pss"
+      "title": "task 4",
+      "description": "div task 4\n",
+      "status": "inprogress",
+      "userId": "u1",
+      "createdAt": "2026-03-26T13:40:52.649Z",
+      "id": "iCWj2JLt6to"
+    },
+    {
+      "title": "test 2 task",
+      "description": "sdasdasdasd",
+      "status": "todo",
+      "userId": "A3eGwX5XanQ",
+      "createdAt": "2026-03-26T13:41:42.433Z",
+      "id": "xmXhjd2PtrA"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

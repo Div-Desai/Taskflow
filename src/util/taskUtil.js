@@ -1,7 +1,7 @@
 const BASE_URL = "http://localhost:3001";
 
-export async function getTasks() {
-  const res = await fetch(`${BASE_URL}/tasks`);
+export async function getTasks(userId) {
+  const res = await fetch(`${BASE_URL}/tasks?userId=${userId}`);
   if (!res.ok) throw new Error("Failed to fetch tasks");
   return res.json();
 }

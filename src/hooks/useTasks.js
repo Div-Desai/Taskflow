@@ -1,11 +1,14 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { getTasks, createTask, updateTask, deleteTask } from "../util/taskUtil";
+import { useAuth } from "../features/auth/AuthContext";
 
 export function useTasks() {
+  const { user } = useAuth();
   return useQuery({
-    queryKey: ["tasks"],
-    queryFn: getTasks,
+    queryKey: ["tasks", user?.id],
+    queryFn: () => getTasks(user?.id),
+    enabled: !!user,
   });
 }
 
