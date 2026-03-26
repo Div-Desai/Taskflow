@@ -1,12 +1,13 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../features/auth/AuthContext";
-import { useState } from "react";
 
 export default function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
   const [serverError, setServerError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const {
     register,
@@ -27,7 +28,7 @@ export default function Login() {
   return (
     <div className="flex h-screen bg-white">
       <div className="hidden md:flex w-1/2 bg-teal-500 flex-col justify-center space-y-20 px-16 py-16 text-white">
-        <h1 className="text-5xl font-bold tracking-tight">MiniTodo</h1>
+        <h1 className="text-5xl font-bold tracking-tight">MINITODO</h1>
         <div>
           <p className="text-4xl font-bold leading-snug mb-4">
             Stay focused. <br /> Get things done.
@@ -73,12 +74,23 @@ export default function Login() {
               <label className="text-sm font-medium text-gray-700 block mb-1">
                 Password
               </label>
-              <input
-                type="password"
-                placeholder="••••••••"
-                {...register("password", { required: "Password is required" })}
-                className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent"
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="••••••••"
+                  {...register("password", {
+                    required: "Password is required",
+                  })}
+                  className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-xs"
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </button>
+              </div>
               {errors.password && (
                 <p className="text-red-500 text-xs mt-1">
                   {errors.password.message}
