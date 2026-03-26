@@ -8,8 +8,8 @@ const STATUSES = [
 ];
 
 export default function TaskModal({ task, onClose }) {
-  const { mutate: createTask, isPending: creating } = useCreateTask();
-  const { mutate: updateTask, isPending: updating } = useUpdateTask();
+  const { mutate: createTask, isPending: creating } = useCreateTask(onClose);
+  const { mutate: updateTask, isPending: updating } = useUpdateTask(onClose);
 
   const {
     register,
@@ -25,12 +25,9 @@ export default function TaskModal({ task, onClose }) {
 
   function onSubmit(data) {
     if (task) {
-      updateTask({ ...task, ...data }, { onSuccess: onClose });
+      updateTask({ ...task, ...data });
     } else {
-      createTask(
-        { ...data, createdAt: new Date().toISOString() },
-        { onSuccess: onClose },
-      );
+      createTask({ ...data, createdAt: new Date().toISOString() });
     }
   }
 
